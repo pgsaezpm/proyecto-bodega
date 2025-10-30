@@ -1,0 +1,53 @@
+<odoo>
+  <data>
+    <!-- Vista de lista -->
+    <record model="ir.ui.view" id="gimnasio.clase_list">
+      <field name="name">Clase (Lista)</field>
+      <field name="model">gimnasio.clase</field>
+      <field name="arch" type="xml">
+        <list>
+          <field name="display_name" nolabel="True"/>
+          <field name="capacidad_maxima" />
+          <field name="dia_semana" />
+          <field name="duracion"/>
+          <field name="entrenador"/>
+        </list>
+      </field>
+    </record>
+
+    <!-- Vista de formulario -->
+    <record model="ir.ui.view" id="gimnasio.clase_form">
+      <field name="name">Clase (Formulario)</field>
+      <field name="model">gimnasio.clase</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <h1>
+              <field name="display_name" />
+            </h1>
+            <group>
+              <field name="nombre" />
+              <field name="capacidad_maxima" />
+              <field name="dia_semana" />
+              <field name="hora_inicio" />
+              <field name="hora_fin" />
+              <field name="duracion"/>
+              <field name="entrenador"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- Acción de ventana -->
+    <record model="ir.actions.act_window" id="gimnasio.clase_action_window">
+      <field name="name">Clasees</field>
+      <field name="res_model">gimnasio.clase</field>
+      <field name="view_mode">list,form</field>
+      <!-- <field name="domain">['campo', '=', 100]</field> -->
+    </record>
+
+    <!-- Elemento de menú con acción -->
+    <menuitem name="Clase" id="gimnasio.clase_menu" parent="gimnasio.menu_root" action="gimnasio.clase_action_window"/>
+  </data>
+</odoo>

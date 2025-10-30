@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="pgs__bodega.list">
+      <field name="name">pgs_Bodega list</field>
+      <field name="model">pgs__bodega.pgs__bodega</field>
+      <field name="arch" type="xml">
+        <list>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </list>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="pgs__bodega.action_window">
+      <field name="name">pgs_Bodega window</field>
+      <field name="res_model">pgs__bodega.pgs__bodega</field>
+      <field name="view_mode">list,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="pgs__bodega.action_server">
+      <field name="name">pgs_Bodega server</field>
+      <field name="model_id" ref="model_pgs__bodega_pgs__bodega"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "list,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="pgs_Bodega" id="pgs__bodega.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="pgs__bodega.menu_1" parent="pgs__bodega.menu_root"/>
+    <menuitem name="Menu 2" id="pgs__bodega.menu_2" parent="pgs__bodega.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="pgs__bodega.menu_1_list" parent="pgs__bodega.menu_1"
+              action="pgs__bodega.action_window"/>
+    <menuitem name="Server to list" id="pgs__bodega" parent="pgs__bodega.menu_2"
+              action="pgs__bodega.action_server"/>
+-->
+  </data>
+</odoo>

@@ -1,0 +1,28 @@
+<odoo>
+  <data>
+
+    <record model="ir.ui.view" id="pgs__bodega.list">
+      <field name="name">pgs_Bodega list</field>
+      <field name="model">pgs__bodega.prueba</field>
+      <field name="arch" type="xml">
+        <list>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </list>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="pgs__bodega.action_window">
+      <field name="name">pgs_Bodega window</field>
+      <field name="res_model">pgs__bodega.prueba</field>
+      <field name="view_mode">list</field>
+    </record>
+
+    <menuitem name="pgs_Bodega" id="pgs__bodega.menu_root"/>
+
+    <menuitem name="Menu 1" id="pgs__bodega.menu_1" parent="pgs__bodega.menu_root"/>
+    
+    <menuitem id="menu_pgs_bodega_items" name="Lista de Bodegas" parent="pgs__bodega.menu_1" action="pgs__bodega.action_window"/>
+  </data>
+</odoo>

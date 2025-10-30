@@ -1,0 +1,6 @@
+<odoo>
+  <data>
+    <!-- Elemento de menú con acción -->
+    <menuitem name="Gimnasio (Pablo Garcia Saez)" id="gimnasio.menu_root"/>
+  </data>
+</odoo>

@@ -1,0 +1,48 @@
+<odoo>
+  <data>
+    <!-- <record id="modulo.modelo_atributos">
+      <field name="nombre_campo" readonly="True" />
+      <field name="nombre_campo" required="True" />
+      <field name="nombre_campo" invisible="True" />
+      <field name="nombre_campo" nolabel="True" />
+      <field name="nombre_campo" widget="nombre_widget" />
+      <field name="nombre_campo" domain="[('campo', '=', True)]"/>
+      <field name="nombre_campo" widget="image" options="{'size': [275, 275]}"/>
+      <field name="nombre_campo" placeholder="texto_indicador"/>
+      <field name="nombre_campo" help="texto_ayuda"/>
+    </record> -->
+
+    <!-- <record id="modulo.modelo_widgets">
+      <field name="campo_char" widget="char_emojis" />
+      <field name="campo_char" widget="url" />
+      <field name="campo_char" widget="badge" />
+      <field name="campo_char" widget="email" />
+      <field name="campo_char" widget="phone" />
+      <field name="campo_char" widget="CopyClipboardChar" />
+      <field name="campo_char" widget="image_url" />
+
+      <field name="campo_integer" widget="color_picker" />
+      <field name="campo_integer" widget="percentpie" />
+      <field name="campo_integer" widget="progressbar" />
+      <field name="campo_integer" widget="handle" />
+      <field name="campo_integer" widget="percentage" />
+
+      <field name="campo_float" widget="float_time" />
+
+      <field name="campo_date" widget="remaining_days" />
+      <field name="campo_date_start" widget="daterange" options="{'related_end_date': 'campo_date_end'}" />
+      <field name="campo_date_end" widget="daterange" options="{'related_start_date': 'campo_date_start'}" />
+
+      <field name="campo_selection" widget="priority" />
+      <field name="campo_selection" widget="radio" />
+      <field name="campo_selection" widget="selection_badge" />
+
+      <field name="campo_boolean" widget="boolean_toogle" />
+
+      <field name="campo_binary" widget="image" />
+
+      <field name="campo_many2many" widget="many2many_tags" />
+      <field name="campo_many2many" widget="many2many_checkboxes" />
+    </record> -->
+  </data>
+</odoo>
