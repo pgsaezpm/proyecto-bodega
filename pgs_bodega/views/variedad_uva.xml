@@ -23,12 +23,14 @@
           <sheet>
             <group>
               <field name="id_variedad" />
-              <field name="nombre_variedad" />
-              <field name="denominacion_origen" />
+              <field name="nombre_variedad"/>
+              <field name="denominacion_origen" widget="many2many_tags"/>
               <field name="rendimiento_denominacion_origen" />
               <field name="producto_inicial1" />
               <field name="producto_sig_inicial2" />
               <field name="producto_sig3" />
+              <field name="grado_brix" />
+              <field name="grado_probable" readonly="True"/>
             </group>
           </sheet>
         </form>

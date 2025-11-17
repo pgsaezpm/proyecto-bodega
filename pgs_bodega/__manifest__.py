@@ -31,6 +31,7 @@ Este módulo gestionara los proveedores y la uva de la bodega
         'views/denominacion_origen.xml',
         'views/producto_uva.xml',
         'views/parcela.xml',
+        'data/localidades_espana.csv',
     ],
     # only loaded in demonstration mode
     'demo': [

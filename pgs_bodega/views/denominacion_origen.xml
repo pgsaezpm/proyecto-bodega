@@ -13,6 +13,23 @@
       </field>
     </record>
 
+    <!-- Vista de formulario -->
+    <record model="ir.ui.view" id="pgs_bodega.denominacion_origen_form">
+      <field name="name">Denominacion Origen (Formulario)</field>
+      <field name="model">pgs_bodega.denominacion_origen</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <field name="id_denominacion" />
+              <field name="nombre" />
+              <field name="variedad_uva" />
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
     <!-- Acción de ventana -->
     <record model="ir.actions.act_window" id="pgs_bodega.denominacion_origen_action_window">
       <field name="name">Denominacion Origen</field>

@@ -26,6 +26,9 @@
               <field name="nombre" />
               <field name="provincia" />
               <field name="tamanio_hectareas" />
+              <field name="variedad_uva" />
+              <field name="localidad" />
+              <!-- <field name="viticultor_propietario" /> -->
             </group>
           </sheet>
         </form>

@@ -12,12 +12,16 @@ class VariedadUva(models.Model):
         ('godello','Godello'),
         ('mencia','Mencía'),
     ], string="Nombre de variedad")
-    denominacion_origen = fields.One2many('pgs_bodega.denominacion_origen','variedad_uva',string='Denominacion origen')
+    denominacion_origen = fields.Many2many('pgs_bodega.denominacion_origen',string='Denominacion origen')
     rendimiento_denominacion_origen = fields.Integer(string='Rendimiento denominacion de origen')
     #Domain para que filtre y solo muestre los productos que sean del tipo adecuado
     producto_inicial1 = fields.Many2one('product.product',string='Producto uva',domain=[('product_tmpl_id.tipo_producto', '=', 'uva')])
     producto_sig_inicial2 = fields.Many2one('product.product',string='Producto pasta',domain=[('product_tmpl_id.tipo_producto', '=', 'pasta')])
     producto_sig3 = fields.Many2one('product.product',string='Producto mosto',domain=[('product_tmpl_id.tipo_producto', '=', 'mosto')])
+    parcela = fields.One2many('pgs_bodega.parcela','variedad_uva',string='Parcela')
+    grado_brix = fields.Float(string='Parcela')
+    grado_probable = fields.Float(string='Grado probable de alcohol',compute='_calcular_grado_probable')
+    
 
     _sql_constraints = [('id_variedad_uniq','unique(id_variedad)','El id de variedad ya existe')]
 
@@ -27,25 +31,13 @@ class VariedadUva(models.Model):
             if not record.producto_inicial1 or not record.producto_sig_inicial2 or not record.producto_sig3:
                 raise ValidationError("Todos los productos deben estar definidos.")
 
-#     class HrRecruitmentStage(models.Model):
-#     _name = 'hr.recruitment.stage'
-#     job_id = fields.Many2one('hr.job', compute='compute_stage', inverse='stage_inverse')
-#     stage_ids = fields.One2many('hr.job', 'stage_id')
+    @api.constrains('nombre_variedad')
+    def _check_nombre_variedad(self):
+        for record in self:
+            if not record.nombre_variedad:
+                raise ValidationError("Debes rellenar el campo nombre")
 
-#     @api.depends('stage_ids')
-#     def compute_stage(self):
-#         if len(self.stage_ids) > 0:
-#             self.job_id = self.stage_ids[0]
-
-#     def stage_inverse(self):
-#         if len(self.stage_ids) > 0:
-#             # delete previous reference
-#             stage = self.env['hr.job'].browse(self.stage_ids[0].id)
-#             asset.stage_id = False
-#         # set new reference
-#         self.job_id.stage_id = self
-
-
-# class HrJob(models.Model):
-#     _name = 'hr.job'
-#     stage_id = fields.Many2one('hr.recruitment.stage', string='Stage')
+    @api.depends('grado_brix')
+    def _calcular_grado_probable(self):
+        for record in self:
+            record.grado_probable = 0.6757 * record.grado_brix - 2.0839
