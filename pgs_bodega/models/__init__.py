@@ -5,4 +5,5 @@ from . import parcela
 from . import producto_uva
 from . import proveedor_viticultor
 from . import variedad_uva
+from . import registro_albaran
 

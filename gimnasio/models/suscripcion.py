@@ -3,6 +3,7 @@
 from odoo import models, fields, api
 from odoo.exceptions import ValidationError
 
+
 class Suscripcion(models.Model):
     _name = 'gimnasio.suscripcion'
     _description = 'Gimnasio (Suscripcion)'

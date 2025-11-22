@@ -23,7 +23,6 @@
             <group>
               <field name="id_denominacion" />
               <field name="nombre" />
-              <field name="variedad_uva" />
             </group>
           </sheet>
         </form>

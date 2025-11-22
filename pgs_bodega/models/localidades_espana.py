@@ -10,6 +10,8 @@ class LocalidadesEspana(models.Model):
     CMUN = fields.Char()
     DC = fields.Char()
     NOMBRE = fields.Char()
-    CODPROV = fields.Char()
+    provcode = fields.Char()
+
+
 
 

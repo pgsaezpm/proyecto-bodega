@@ -19,8 +19,9 @@ class VariedadUva(models.Model):
     producto_sig_inicial2 = fields.Many2one('product.product',string='Producto pasta',domain=[('product_tmpl_id.tipo_producto', '=', 'pasta')])
     producto_sig3 = fields.Many2one('product.product',string='Producto mosto',domain=[('product_tmpl_id.tipo_producto', '=', 'mosto')])
     parcela = fields.One2many('pgs_bodega.parcela','variedad_uva',string='Parcela')
-    grado_brix = fields.Float(string='Parcela')
+    grado_brix = fields.Float(string='Grado brix')
     grado_probable = fields.Float(string='Grado probable de alcohol',compute='_calcular_grado_probable')
+    registro_albaran = fields.Many2many('pgs_bodega.registro_albaran',string="Parcelas asignadas")
     
 
     _sql_constraints = [('id_variedad_uniq','unique(id_variedad)','El id de variedad ya existe')]
@@ -41,3 +42,12 @@ class VariedadUva(models.Model):
     def _calcular_grado_probable(self):
         for record in self:
             record.grado_probable = 0.6757 * record.grado_brix - 2.0839
+
+    #Cambiar el campo titulo del modulo
+    @api.depends('id_variedad','nombre_variedad')
+    def _compute_display_name(self):
+        for record in self:
+            if record.id_variedad and record.nombre_variedad:
+                record.display_name = f"{record.id_variedad}, ({record.nombre_variedad})"
+            else:
+                record.display_name = 'Sin nombre'
