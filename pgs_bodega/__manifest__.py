@@ -33,6 +33,7 @@ Este módulo gestionara los proveedores y la uva de la bodega
         'views/parcela.xml',
         'views/registro_albaran.xml',
         'data/localidades_espana.csv',
+        'views/deposito.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
