@@ -8,12 +8,6 @@ class Deposito(models.Model):
     id_deposito = fields.Char (string='ID deposito', required=True)
     nombre = fields.Char(string='Nombre deposito', required=True)
     capacidad = fields.Integer(string='Capacidad deposito en Kg')
-    tipo_producto = fields.Selection([
-        ('uva','Uva'),
-        ('pasta','Pasta'),
-        ('mosto','Mosto'),
-    ], string="Tipo de producto que almacena")
-    producto = fields.Many2one('product.product',string='Producto')
 
     _sql_constraints = [('id_deposito','unique(id_deposito)','El id de deposito ya existe')]
 

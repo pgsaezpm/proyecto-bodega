@@ -24,6 +24,7 @@ Este módulo gestionara los proveedores y la uva de la bodega
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
+        
         'views/views.xml',
         'views/templates.xml',
         'views/proveedor_viticultor.xml',
@@ -32,12 +33,15 @@ Este módulo gestionara los proveedores y la uva de la bodega
         'views/producto_uva.xml',
         'views/parcela.xml',
         'views/registro_albaran.xml',
-        'data/localidades_espana.csv',
         'views/deposito.xml',
+        'views/movimientos.xml',
+        'data/localidades_espana.csv',
+        'data/depositos_data.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
         'demo/demo.xml',
     ],
+    'post_init_hook': 'proteger_registros',
 }
 

@@ -1,0 +1,52 @@
+<odoo>
+  <data>
+    <!-- Vista de lista -->
+    <record model="ir.ui.view" id="pgs_bodega.movimientos_list">
+      <field name="name">Movimientos(Lista)</field>
+      <field name="model">pgs_bodega.movimientos</field>
+      <field name="arch" type="xml">
+        <list>
+          <field name="id_origen" />
+          <field name="id_mov" />
+          <field name="cantidad" />
+          <field name="es_entrada"/>
+          <field name="producto_movido" />
+        </list>
+      </field>
+    </record>
+
+    <!-- Vista de formulario -->
+    <record model="ir.ui.view" id="pgs_bodega.movimientos_form">
+      <field name="name">Movimientos(Formulario)</field>
+      <field name="model">pgs_bodega.movimientos</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <field name="id_registro" />
+              <field name="id_mov" />
+              <field name="id_origen" />
+              <field name="cantidad" />
+              <field name="es_entrada"/>
+              <field name="producto_movido"/>
+              <field name="id_mov_anterior" />
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- Acción de ventana -->
+    <record model="ir.actions.act_window" id="pgs_bodega.movimientos_action_window">
+      <field name="name">Movimientos</field>
+      <field name="res_model">pgs_bodega.movimientos</field>
+      <field name="view_mode">list,form</field>
+      <!-- <field name="domain">['campo', '=', 100]</field> -->
+    </record>
+
+
+    <!-- Submenú -->
+    <menuitem name="Movimientos" id="pgs_bodega.movimientos_submenu" parent="pgs_bodega.root_menu" action="pgs_bodega.movimientos_action_window"/>
+
+  </data>
+</odoo>

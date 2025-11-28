@@ -24,8 +24,6 @@
               <field name="id_deposito" />
               <field name="nombre" />
               <field name="capacidad"/>
-              <field name="tipo_producto" />
-              <field name="producto" domain="[('product_tmpl_id.tipo_producto', '=', tipo_producto)]"/>
             </group>
           </sheet>
         </form>

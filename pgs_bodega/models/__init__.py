@@ -7,3 +7,4 @@ from . import proveedor_viticultor
 from . import variedad_uva
 from . import registro_albaran
 from . import deposito
+from . import movimientos

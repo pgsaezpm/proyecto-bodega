@@ -1,0 +1,11 @@
+<odoo>
+    <data noupdate="0">
+
+        <record id="deposito_0" model="pgs_bodega.deposito">
+            <field name="id_deposito">0</field>
+            <field name="nombre">Tolva</field>
+            <field name="capacidad">1000000</field>
+        </record>
+
+    </data>
+</odoo>

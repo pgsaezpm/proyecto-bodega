@@ -57,3 +57,28 @@ class RegistroAlbaran(models.Model):
                 record.display_name = f"{record.id_registro}, ({record.hora_registro})"
             else:
                 record.display_name = 'Sin nombre'
+
+    #Crear el registro inicial en movimientos cuando se cree en este modelo un registro
+    @api.model
+    def create(self, vals):
+
+        record = super(RegistroAlbaran, self).create(vals)
+
+        # Obtener producto_uva (tu campo es Many2many)
+        producto_uva = record.variedad_uva[:1].producto_inicial1.id if record.variedad_uva else None
+        
+        id_primer_mov = f"000{str(record.id_registro).zfill(3)}"
+
+        # Crear el movimiento inicial
+        self.env['pgs_bodega.movimientos'].create({
+            'secuencia_grupo': 000,
+            'id_registro': record.id_registro,
+            'id_origen': 0,
+            'id_mov': id_primer_mov,
+            'cantidad': record.peso_neto,  
+            'es_entrada': True,
+            'producto_movido': producto_uva,
+            'id_mov_anterior': False,
+        }) 
+
+        return record
