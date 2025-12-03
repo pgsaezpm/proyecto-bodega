@@ -15,6 +15,8 @@ class Movimientos(models.Model):
     es_entrada = fields.Boolean(string='¿Es entrada?',default=True)
     producto_movido = fields.Many2one('product.product',string='Producto',required=True)
     id_mov_anterior = fields.Char (string='ID movimiento anteriror relacionado')
+    trabajo = fields.Many2one('pgs_bodega.trabajo',String='Trabajo realizado')
+
 
     @api.constrains('cantidad')
     def _check_cantidad(self):
@@ -75,7 +77,7 @@ class Movimientos(models.Model):
 
     @api.model
     def create(self, vals):
-        grupo = vals.get('id_registro')
+        grupo = vals.get('id_registro') or 0
         # Asegurar formato AAA
         grupo = str(grupo).zfill(3)
         vals['id_registro'] = grupo

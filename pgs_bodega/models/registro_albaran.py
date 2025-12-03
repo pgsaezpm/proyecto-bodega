@@ -18,7 +18,7 @@ class RegistroAlbaran(models.Model):
     ], string="Tipo de recogida", default='manual_remolque')
     tara = fields.Float(string='Tara')
     peso_bruto = fields.Float(string='Peso bruto')
-    peso_neto = fields.Float(string='Peso neto (Calculado)', compute='_calcular_peso_neto')
+    peso_neto = fields.Float(string='Peso neto (Calculado)', compute='_calcular_peso_neto',store=True)
     calidad_uva = fields.Selection([
         ('1','1'),
         ('2','2'),

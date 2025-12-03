@@ -25,11 +25,12 @@
             <group>
               <field name="id_registro" />
               <field name="id_mov" />
-              <field name="id_origen" />
+              <field name="id_origen"/>
               <field name="cantidad" />
               <field name="es_entrada"/>
               <field name="producto_movido"/>
               <field name="id_mov_anterior" />
+              <field name="trabajo" />
             </group>
           </sheet>
         </form>

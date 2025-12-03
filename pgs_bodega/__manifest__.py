@@ -35,13 +35,13 @@ Este módulo gestionara los proveedores y la uva de la bodega
         'views/registro_albaran.xml',
         'views/deposito.xml',
         'views/movimientos.xml',
+        'views/trabajo.xml',
         'data/localidades_espana.csv',
         'data/depositos_data.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
         'demo/demo.xml',
-    ],
-    'post_init_hook': 'proteger_registros',
+    ]
 }
 

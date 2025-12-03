@@ -8,3 +8,4 @@ from . import variedad_uva
 from . import registro_albaran
 from . import deposito
 from . import movimientos
+from . import trabajo

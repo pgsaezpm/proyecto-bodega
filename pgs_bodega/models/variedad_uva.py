@@ -20,7 +20,7 @@ class VariedadUva(models.Model):
     producto_sig3 = fields.Many2one('product.product',string='Producto mosto',domain=[('product_tmpl_id.tipo_producto', '=', 'mosto')])
     parcela = fields.One2many('pgs_bodega.parcela','variedad_uva',string='Parcela')
     grado_brix = fields.Float(string='Grado brix')
-    grado_probable = fields.Float(string='Grado probable de alcohol',compute='_calcular_grado_probable')
+    grado_probable = fields.Float(string='Grado probable de alcohol',compute='_calcular_grado_probable',store=True)
     registro_albaran = fields.Many2many('pgs_bodega.registro_albaran',string="Parcelas asignadas")
     
 

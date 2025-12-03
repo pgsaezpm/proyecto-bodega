@@ -13,10 +13,21 @@ class Parcela(models.Model):
     tamanio_hectareas = fields.Float(string='Tamaño hectáreas',digits=(10,2))
     variedad_uva = fields.Many2one('pgs_bodega.variedad_uva',string='Variedad de uva')
     registro_albaran = fields.Many2many('pgs_bodega.registro_albaran',string="Parcelas asignadas")
+    numero_cepas = fields.Integer(string="Numero de cepas")
+    poligono = fields.Char(string="Numero de polígono")
+    info_catastral = fields.Char(string="Informacion catastral",compute='_calcular_info_catastral')
 
     _sql_constraints = [('id_parcela_unico','unique(id_parcela)','El id de la parcela ya existe')]
 
     #Cambiar el campo titulo del modulo
+    @api.depends('id_parcela','poligono','localidad')
+    def _calcular_info_catastral(self):
+        for record in self:
+            if record.id_parcela and record.localidad and record.poligono:
+                record.info_catastral = f"{record.localidad.CPRO} {record.localidad.CMUN} {record.poligono} {record.id_parcela}"
+            else:
+                record.info_catastral = 0
+
     @api.depends('nombre','viticultor_propietario')
     def _compute_display_name(self):
         for record in self:
@@ -26,6 +37,7 @@ class Parcela(models.Model):
                 record.display_name = 'Sin nombre'
 
 
+    # @api.onchange('provincia')
     # @api.onchange('provincia')
     # def _onchange_provincia_set_domain(self):
     #     self.localidad = False

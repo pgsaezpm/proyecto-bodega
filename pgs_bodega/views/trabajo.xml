@@ -1,0 +1,46 @@
+<odoo>
+  <data>
+    <!-- Vista de lista -->
+    <record model="ir.ui.view" id="pgs_bodega.trabajo_list">
+      <field name="name">Trabajo (Lista)</field>
+      <field name="model">pgs_bodega.trabajo</field>
+      <field name="arch" type="xml">
+        <list>
+          <field name="id_trabajo" />
+          <field name="descripcion" />
+          <field name="tipo_trabajo" />
+        </list>
+      </field>
+    </record>
+
+    <!-- Vista de formulario -->
+    <record model="ir.ui.view" id="pgs_bodega.trabajo_form">
+      <field name="name">Trabajo (Formulario)</field>
+      <field name="model">pgs_bodega.trabajo</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <field name="id_trabajo" />
+              <field name="descripcion" />
+              <field name="tipo_trabajo" />
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- Acción de ventana -->
+    <record model="ir.actions.act_window" id="pgs_bodega.trabajo_action_window">
+      <field name="name">Trabajo</field>
+      <field name="res_model">pgs_bodega.trabajo</field>
+      <field name="view_mode">list,form</field>
+      <!-- <field name="domain">['campo', '=', 100]</field> -->
+    </record>
+
+
+    <!-- Submenú -->
+    <menuitem name="Trabajo" id="pgs_bodega.trabajo_submenu" parent="pgs_bodega.root_menu" action="pgs_bodega.trabajo_action_window"/>
+
+  </data>
+</odoo>
