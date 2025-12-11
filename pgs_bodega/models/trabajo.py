@@ -5,7 +5,7 @@ class Trabajo(models.Model):
     _name = 'pgs_bodega.trabajo'
     _description = 'Bodega (Tipo de Trabajo)'
 
-    id_trabajo = fields.Char (string='ID de trabajo', required=True)
+    id_trabajo = fields.Char (string='ID del trabajo', required=True)
     descripcion = fields.Text(string='Descripcion del trabajo', required=True)
     tipo_trabajo = fields.Selection([
         ('campo','Campo'),
